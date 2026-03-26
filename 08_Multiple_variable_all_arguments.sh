@@ -9,4 +9,5 @@
 
 #!/bin/bash
 
-echo "$*"
+echo "Files to list:"
+ls "$@"
