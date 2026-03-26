@@ -9,8 +9,6 @@
 PID=$(ps -ef | grep nginx | grep master | cut -d " " -f9)
 echo $PID
 
-if [ -z "$PID" ]; then
-    echo "Nginx is not running"
-else
+if [ "$PID" -gt 0 ]; then
     echo "Nginx is running with PID: $PID"
 fi
