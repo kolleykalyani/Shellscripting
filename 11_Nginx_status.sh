@@ -6,7 +6,7 @@
 ######################################################
 # git add . && git commit -m "adding script" && git push
 
-PID=$(pgrep -f "nginx: master")
+PID=$(ps -ef | grep nginx | grep master | cut -d " " -f9)
 echo $PID
 if [ -n "$PID" ]; then
     echo "Nginx is running with PID: $PID"
