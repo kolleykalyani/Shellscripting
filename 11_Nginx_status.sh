@@ -13,7 +13,7 @@ if [ -n "$PID" ]; then
 else
     echo "Nginx is not running"
     echo "Starting Nginx..."
-    sudo service nginx start
+    sudo service nginx start 2>&1 /dev/null
     PID=$(ps -ef | grep nginx | grep master | cut -d " " -f9)
     echo "Nginx started with PID: $PID"
 fi
