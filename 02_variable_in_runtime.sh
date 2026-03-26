@@ -4,6 +4,6 @@
 # Description: first script                          #
 # Date: 26-03-2026									 #
 ######################################################
-echo "Hello world"
-echo
-echo "Hello world"
+NAME=$1 
+echo "Hello good morning" 
+echo "my name is $NAME"
