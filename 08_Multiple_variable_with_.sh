@@ -5,9 +5,9 @@
 # Date: 26-03-2026									 #
 ######################################################
 # git add . && git commit -m "adding script" && git push
-NAME=$1 
-NAME1=$2
-echo "Hello good morning" 
-echo "my name is $NAME"
-echo "my second name is $NAME1"
-echo "$@"
+#!/bin/bash
+
+#!/bin/bash
+
+echo "Files to list:"
+ls "$@"
