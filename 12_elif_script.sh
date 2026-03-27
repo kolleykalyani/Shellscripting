@@ -2,7 +2,7 @@
 
 if service nginx status > /dev/null 2>&1; then
     echo "Nginx is running"
-elif service nginx status 2>&1 | grep -qi "stopped"; then
+elif service nginx status 2>&1 | grep -qi "nginx is not running"; then
     echo "Nginx is installed but stopped"
 else
     echo "Nginx is not installed"
