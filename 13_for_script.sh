@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for i in {1..10}
+for i in venkey kalyani venkatesh kalli pandit
 do
     echo "Number: $i"
 done
