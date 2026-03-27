@@ -10,7 +10,7 @@ do
     sleep 3
 
     ((COUNT++))
-
+     echo "Nginx is checking for $COUNT time"
 done
 
 echo "Nginx is running fine"
