@@ -1,16 +1,13 @@
 #!/bin/bash
-
 COUNT=0
+echo "Waiting for Nginx to start..."
 
-while ! systemctl is-active --quiet nginx
+while ! pgrep nginx > /dev/null
 do
-    echo "Nginx not running, trying to start..."
-
-    systemctl start nginx
-    sleep 3
-
-    ((COUNT++))
-     echo "Nginx is checking for $COUNT time"
+    echo "Nginx not up yet..."
+    sleep 10
+((COUNT++)) 
+echo "Waiting for Nginx to start... $COUNT"   
 done
 
-echo "Nginx is running fine"
+echo "Nginx is now running"
