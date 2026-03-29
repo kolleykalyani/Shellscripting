@@ -1,13 +1,7 @@
 #!/bin/bash
-COUNT=0
-echo "Waiting for Nginx to start..."
-
-while ! pgrep nginx > /dev/null
+OUTPUT=$(aws ec2 describe-volumes | jq -r '.Volumes[] | "\(.VolumeId) \(.Attachments[].Device)"')
+while read -r OUTPUT
 do
-    echo "Nginx not up yet..."
-    sleep 10
-((COUNT++)) 
-echo "Waiting for Nginx to start... $COUNT"   
-done
-
-echo "Nginx is now running"
+    echo "creating snapshot for $OUTPUT"
+    aws ec2 create-snapshot --volume-id $OUTPUT
+done <<< "$OUTPUT"
