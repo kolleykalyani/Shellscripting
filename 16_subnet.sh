@@ -1,6 +1,7 @@
 #!/bin/bash
-OUTPUT=$(aws ec2 describe-volumes | jq '.Volumes[] | {.VolumeId, Device: .Attachments[].Device}')
-for i in $OUTPUT
+OUTPUT=$(aws ec2 describe-volumes | jq '.Volumes[] | {VolumeId: .VolumeId, Device: .Attachments[].Device}')
+
+echo "$OUTPUT" | while read vol device
 do
-    echo "Name of the volume and device: $i"
+    echo "Name of the volume and device: $vol $device"
 done
