@@ -3,5 +3,5 @@ OUTPUT=$(aws ec2 describe-volumes | jq '.Volumes[] | {VolumeId: .VolumeId, Devic
 
 echo "$OUTPUT" | while read vol device
 do
-    echo "Name of the volume and device: $vol $device"
+    echo "Volume ID: $vol $device"
 done
