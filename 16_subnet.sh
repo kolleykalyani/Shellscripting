@@ -3,5 +3,4 @@ OUTPUT=$(aws ec2 describe-volumes | jq '.Volumes[] | {VolumeId: .VolumeId, Devic
 for i in $OUTPUT
 do
     echo "Name of the volume and device: $i"
-    echo "$i"
 done
