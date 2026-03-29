@@ -1,10 +1,8 @@
 #!/bin/bash
-aws ec2 describe-volumes | jq -r '.Volumes[].VolumeId' | while read vol
+for volume in `aws ec2 describe-volumes | jq -r '.Volumes[].VolumeId'`
 do
-    echo "Creating snapshot for $vol"
-    
-    aws ec2 create-snapshot \
-        --volume-id "$vol" \
-        --description "Snapshot of $vol" | jq -r '.SnapshotId'
-
+    echo "Creating snapshot for $volume"
+    # aws ec2 create-snapshot \
+    #     --volume-id "$volume" \
+    #     --description "Snapshot of $volume" | jq -r '.SnapshotId'
 done
